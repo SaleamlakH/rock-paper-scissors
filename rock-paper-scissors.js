@@ -1,6 +1,5 @@
 function getComputerChoice() {
-    randomNumber = Math.floor(Math.random() * 3) + 1;
-    console.log(randomNumber);
+    let randomNumber = Math.floor(Math.random() * 3) + 1;
 
     if (randomNumber == 1) {
         return 'rock';
