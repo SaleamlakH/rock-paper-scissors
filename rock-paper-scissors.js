@@ -42,7 +42,7 @@ function playRound(humanChoice, computerChoice) {
             computerScore++;
         }
     } else {
-        if (computer == 'rock') {
+        if (computerChoice == 'rock') {
             console.log('%cYou lose, rock breaks scissors.', 'background-color: red;');
             computerScore++;
         } else {
