@@ -4,20 +4,18 @@ let gameRound = 1;
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
-
-    if (randomNumber == 1) {
-        return 'rock';
-    } else if (randomNumber == 2) {
-        return 'paper';
-    }
-    return 'scissors';
+    return getChoice(randomNumber);
 }
 
 function getHumanChoice() {
     let humanChoice = Number(prompt('Please enter\n"1 for rock",\n"2 for paper" or \n"3 for scissor"'));
-    if (humanChoice == 1) {
+    return getChoice(humanChoice)
+}
+
+function getChoice(choice) {
+    if (choice == 1) {
         return 'rock';
-    } else if (humanChoice == 2) {
+    } else if (choice == 2) {
         return 'paper';
     }
 
