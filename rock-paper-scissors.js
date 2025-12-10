@@ -29,31 +29,25 @@ function playRound(humanChoice, computerChoice) {
     } else if (humanChoice == 'rock') {
         if (computerChoice == 'paper') {
             console.log('%cYou lose, paper wraps rock.', 'background-color: red;');
-            computerScore++;
             return -1;
         } else {
             console.log('%cYou win, rock breaks scissors.', 'background-color: green;');
-            humanScore++;
             return 1;
         }
     } else if (humanChoice == 'paper') {
         if (computerChoice == 'rock') {
             console.log('%cYou win, paper wraps rock.', 'background-color: green;');
-            humanScore++;
             return 1;
         } else {
             console.log('%cYou lose, scissors cut paper.', 'background-color: red;');
-            computerScore++;
             return -1;
         }
     } else {
         if (computerChoice == 'rock') {
             console.log('%cYou lose, rock breaks scissors.', 'background-color: red;');
-            computerScore++;
             return -1;
         } else {
             console.log('%cYou win, scissors cut paper.', 'background-color: green');
-            humanScore++;
             return 1;
         }
     }
@@ -65,7 +59,11 @@ function playGame() {
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
 
-    playRound(humanChoice, computerChoice);
-    gameRound++;
+    let roundResult = playRound(humanChoice, computerChoice);
+    if (roundResult) {
+        roundResult == 1 ? humanScore++ : computerScore++;
+        gameRound++;
+    }
+
     playGame();
 }
