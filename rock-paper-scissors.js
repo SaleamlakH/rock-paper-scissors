@@ -9,7 +9,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let humanChoice = Number(prompt('Please enter\n"1 for rock",\n"2 for paper" or \n"3 for scissor"'));
-    return getChoice(humanChoice)
+    return getChoice(humanChoice);
 }
 
 function getChoice(choice) {
@@ -25,29 +25,36 @@ function getChoice(choice) {
 function playRound(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) {
         console.log('%cIt\'s tie', 'color: yellow;');
+        return 0;
     } else if (humanChoice == 'rock') {
         if (computerChoice == 'paper') {
             console.log('%cYou lose, paper wraps rock.', 'background-color: red;');
             computerScore++;
+            return -1;
         } else {
             console.log('%cYou win, rock breaks scissors.', 'background-color: green;');
             humanScore++;
+            return 1;
         }
     } else if (humanChoice == 'paper') {
         if (computerChoice == 'rock') {
             console.log('%cYou win, paper wraps rock.', 'background-color: green;');
             humanScore++;
+            return 1;
         } else {
             console.log('%cYou lose, scissors cut paper.', 'background-color: red;');
             computerScore++;
+            return -1;
         }
     } else {
         if (computerChoice == 'rock') {
             console.log('%cYou lose, rock breaks scissors.', 'background-color: red;');
             computerScore++;
+            return -1;
         } else {
             console.log('%cYou win, scissors cut paper.', 'background-color: green');
             humanScore++;
+            return 1;
         }
     }
 }
