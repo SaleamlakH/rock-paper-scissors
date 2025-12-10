@@ -55,6 +55,14 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
     if (gameRound > 5) return;
+
+    if (humanScore >= 3) {
+        console.log('Congratulations! You win!');
+        return;
+    } else if (computerScore >= 3) {
+        console.log('Sorry! You lose!');
+        return;
+    }
     
     const humanChoice = getHumanChoice();
     const computerChoice = getComputerChoice();
