@@ -77,8 +77,6 @@ h1 {
 
 .cards {
     padding: 16px;
-    width: 350px;
-    height: 200px;
     background-color: rgb(35, 35, 48);
     border: 1px solid rgb(158, 161, 161);
     border-radius: 0.5em;
