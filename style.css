@@ -84,7 +84,7 @@ h1 {
     border-radius: 0.5em;
 
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: center;
     align-items: center;
     gap: 10px;
 }
