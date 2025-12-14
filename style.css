@@ -34,6 +34,7 @@ h1 {
 .message {
     font-size: 18px;
     padding: 10px;
+    margin: 0px;
     border: 2px solid rgb(64, 231, 231);
     border-radius: 1.5em;
 }
