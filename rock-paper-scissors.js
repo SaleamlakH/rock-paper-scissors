@@ -7,15 +7,6 @@ function getComputerChoice() {
     return getChoice(randomNumber);
 }
 
-function getHumanChoice() {
-    let humanChoice = Number(prompt('Please enter\n"1 for rock",\n"2 for paper" or \n"3 for scissor"'));
-    
-    if (humanChoice == 1 || humanChoice == 2 || humanChoice == 3) {
-        return getChoice(humanChoice);
-    }
-    getHumanChoice();
-}
-
 function getChoice(choice) {
     if (choice == 1) {
         return 'rock';
