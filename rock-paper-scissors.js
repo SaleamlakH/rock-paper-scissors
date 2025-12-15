@@ -77,3 +77,21 @@ function playGame() {
 
     playGame();
 }
+
+const humanPlayer = document.querySelector('.human-player');
+const cards = humanPlayer.querySelector('.cards');
+
+cards.addEventListener('click', (e) => {
+    // e.taget returns img which is not what we want, we want the button.
+    let humanChoice = e.target.parentElement.getAttribute('class');
+    switch (humanChoice) {
+        case 'rock':
+            console.log('rock is selected');
+            break;
+        case 'paper':
+            console.log('paper is selected');
+            break;
+        case 'scissors':
+            console.log('scissors is selectd')
+    }
+});
