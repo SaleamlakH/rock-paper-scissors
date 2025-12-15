@@ -65,6 +65,7 @@ function playGame(humanChoice) {
         gameRound++;
     }
 
+    updateMessageDisplay(humanChoice, roundResult);
     updateScoreDisplay();
 }
 
@@ -74,7 +75,47 @@ function updateScoreDisplay() {
 
     humanScoreDisplay.textContent = humanScore;
     computerScoreDisplay.textContent = computerScore;
-}   
+}
+
+function updateMessageDisplay (humanChoice, roundResult) {
+    const messageDisplay = document.querySelector('.message');
+    let message = getGameMessage(humanChoice, roundResult)
+    
+    messageDisplay.textContent = message;
+    switch (roundResult) {
+        case 1:
+            messageDisplay.style.borderColor = 'rgb(0, 255, 0)';
+            break;
+        case -1:
+            messageDisplay.style.borderColor = 'rgb(255, 0, 0)';
+            break;
+        case 0:
+            messageDisplay.style.borderColor = 'rgb(255, 255, 0)';
+    }
+}
+
+function getGameMessage(humanChoice, roundResult) {
+    if (roundResult == 0) return 'Tie';
+
+    let message = '';
+    switch (humanChoice) {
+        case 'rock':
+            message = (roundResult == 1)
+            ? 'YOU WIN!\nRock breaks scissors.'
+            : 'YOU LOSE!\nPaper wraps Rocks.';
+            break;
+        case 'paper':
+            message = (roundResult == 1)
+            ? 'YOU WIN!\nPaper wraps rocks.'
+            : 'YOU LOSE!\nScissors cut paper.';
+            break;
+        case 'scissors':
+            message = (roundResult == 1)
+            ? 'YOU WIN!\nScissors cut paper.'
+            : 'YOU LOSE!\nRock breaks scissors.';
+    }
+    return message;
+}
 
 const humanPlayer = document.querySelector('.human-player');
 const cards = humanPlayer.querySelector('.cards');
