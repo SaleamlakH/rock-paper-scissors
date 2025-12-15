@@ -64,7 +64,17 @@ function playGame(humanChoice) {
         roundResult == 1 ? humanScore++ : computerScore++;
         gameRound++;
     }
+
+    updateScoreDisplay();
 }
+
+function updateScoreDisplay() {
+    const humanScoreDisplay = document.querySelector('.human-score');
+    const computerScoreDisplay = document.querySelector('.computer-score');
+
+    humanScoreDisplay.textContent = humanScore;
+    computerScoreDisplay.textContent = computerScore;
+}   
 
 const humanPlayer = document.querySelector('.human-player');
 const cards = humanPlayer.querySelector('.cards');
