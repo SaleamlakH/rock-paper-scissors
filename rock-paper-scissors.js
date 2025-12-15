@@ -18,33 +18,17 @@ function getChoice(choice) {
 }
 
 function playRound(humanChoice, computerChoice) {
-    if (humanChoice == computerChoice) {
-        console.log('%cIt\'s tie', 'color: yellow;');
-        return 0;
-    } else if (humanChoice == 'rock') {
-        if (computerChoice == 'paper') {
-            console.log('%cYou lose, paper wraps rock.', 'background-color: red;');
-            return -1;
-        } else {
-            console.log('%cYou win, rock breaks scissors.', 'background-color: green;');
-            return 1;
-        }
+    if (humanChoice == computerChoice) return 0;
+    
+    if (humanChoice == 'rock') {
+        if (computerChoice == 'paper') return -1;
+        return 1;
     } else if (humanChoice == 'paper') {
-        if (computerChoice == 'rock') {
-            console.log('%cYou win, paper wraps rock.', 'background-color: green;');
-            return 1;
-        } else {
-            console.log('%cYou lose, scissors cut paper.', 'background-color: red;');
-            return -1;
-        }
+        if (computerChoice == 'rock') return 1;
+        return -1;
     } else {
-        if (computerChoice == 'rock') {
-            console.log('%cYou lose, rock breaks scissors.', 'background-color: red;');
-            return -1;
-        } else {
-            console.log('%cYou win, scissors cut paper.', 'background-color: green');
-            return 1;
-        }
+        if (computerChoice == 'rock') return -1;
+        return 1;
     }
 }
 
