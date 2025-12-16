@@ -33,14 +33,6 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame(humanChoice) {
-    if (humanScore >= 3) {
-        console.log('Congratulations! You win!');
-        return;
-    } else if (computerScore >= 3) {
-        console.log('Sorry! You lose!');
-        return;
-    }
-    
     const computerChoice = getComputerChoice();
     let roundResult = playRound(humanChoice, computerChoice);
 
@@ -49,6 +41,12 @@ function playGame(humanChoice) {
         gameRound++;
     }
 
+    if (humanScore >= 3) {
+        console.log('Congratulations! You win!');
+    } else if (computerScore >= 3) {
+        console.log('Sorry! You lose!');
+    }
+    
     updateMessageDisplay(humanChoice, roundResult);
     updateScoreDisplay();
 }
@@ -63,8 +61,8 @@ function updateScoreDisplay() {
 
 function updateMessageDisplay (humanChoice, roundResult) {
     const messageDisplay = document.querySelector('.message');
-    let message = getGameMessage(humanChoice, roundResult)
-    
+    let message = getGameMessage(humanChoice, roundResult);
+
     messageDisplay.textContent = message;
     switch (roundResult) {
         case 1:
