@@ -33,9 +33,7 @@ function playGame(event) {
     const computerChoice = getComputerChoice();
     let roundResult = getRoundResult(humanChoice, computerChoice);
 
-    if (roundResult) {
-        roundResult == 1 ? humanScore++ : computerScore++;
-    }
+    [humanScore, computerScore] = updateScoreDisplay(roundResult);
 
     if (humanScore >= 3 || computerScore >= 3) {
         displayEndMessage();
@@ -66,12 +64,19 @@ function displayEndMessage() {
     }
 }
 
-function updateScoreDisplay() {
+function updateScoreDisplay(roundResult) {
     const humanScoreDisplay = document.querySelector('.human-score');
     const computerScoreDisplay = document.querySelector('.computer-score');
 
-    humanScoreDisplay.textContent = humanScore;
-    computerScoreDisplay.textContent = computerScore;
+    if (roundResult === 1) {
+        humanScore++;
+        humanScoreDisplay.textContent = humanScore;
+    } else if (roundResult === -1) {
+        computerScore++;
+        computerScoreDisplay.textContent = computerScore;
+    }
+
+    return [humanScore, computerScore];
 }
 
 //round message
