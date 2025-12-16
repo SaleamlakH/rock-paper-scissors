@@ -41,14 +41,24 @@ function playGame(humanChoice) {
         gameRound++;
     }
 
-    if (humanScore >= 3) {
-        console.log('Congratulations! You win!');
-    } else if (computerScore >= 3) {
-        console.log('Sorry! You lose!');
+    if (humanScore >= 3 || computerScore >= 3) {
+        displayEndMessage();
+    } else {
+        updateMessageDisplay(humanChoice, roundResult);
     }
-    
-    updateMessageDisplay(humanChoice, roundResult);
     updateScoreDisplay();
+}
+
+function displayEndMessage() {
+    const messageDisplay = document.querySelector('.message');
+
+    if (humanScore >= 3) {
+        messageDisplay.textContent = 'You Win!';
+        messageDisplay.style.borderColor = 'rgb(0, 255, 0);';
+    } else {
+        messageDisplay.textContent = 'You Lose!';
+        messageDisplay.style.borederColor = 'rgb(255, 0, 0);';
+    }
 }
 
 function updateScoreDisplay() {
@@ -59,6 +69,7 @@ function updateScoreDisplay() {
     computerScoreDisplay.textContent = computerScore;
 }
 
+//round message
 function updateMessageDisplay (humanChoice, roundResult) {
     const messageDisplay = document.querySelector('.message');
     let message = getGameMessage(humanChoice, roundResult);
