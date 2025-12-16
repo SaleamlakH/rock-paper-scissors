@@ -119,12 +119,17 @@ function getGameMessage(humanChoice, roundResult) {
     return message;
 }
 
-const humanPlayer = document.querySelector('.human-player');
-const buttons = Array.from(humanPlayer.querySelectorAll('button'));
 
-buttons.forEach(button => {
-    button.addEventListener('click', (e) => {
-        let humanChoice = e.target.parentElement.getAttribute('class');
-        playGame(humanChoice);
+function startGame() {
+    const humanPlayer = document.querySelector('.human-player');
+    const buttons = Array.from(humanPlayer.querySelectorAll('button'));
+
+    buttons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            let humanChoice = e.target.parentElement.getAttribute('class');
+            playGame(humanChoice);
+        })
     })
-})
+}
+
+startGame();
