@@ -120,11 +120,11 @@ function getGameMessage(humanChoice, roundResult) {
 }
 
 const humanPlayer = document.querySelector('.human-player');
-const cards = humanPlayer.querySelector('.cards');
+const buttons = Array.from(humanPlayer.querySelectorAll('button'));
 
-cards.addEventListener('click', (e) => {
-    // e.taget returns img which is not what we want, we want the button.
-    let humanChoice = e.target.parentElement.getAttribute('class');
-    
-    playGame(humanChoice);
-});
+buttons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        let humanChoice = e.target.parentElement.getAttribute('class');
+        playGame(humanChoice);
+    })
+})
