@@ -33,7 +33,7 @@ function playGame(event) {
     const computerChoice = getComputerChoice();
     let roundResult = getRoundResult(humanChoice, computerChoice);
 
-    [humanScore, computerScore] = updateScoreDisplay(roundResult);
+    [humanScore, computerScore] = updateScores(roundResult);
 
     if (humanScore >= 3 || computerScore >= 3) {
         displayEndMessage();
@@ -41,7 +41,7 @@ function playGame(event) {
     } else {
         updateMessageDisplay(humanChoice, roundResult);
     }
-    updateScoreDisplay();
+    updateScores();
 }
 
 function endTheGame() {
@@ -64,7 +64,7 @@ function displayEndMessage() {
     }
 }
 
-function updateScoreDisplay(roundResult) {
+function updateScores(roundResult) {
     const humanScoreDisplay = document.querySelector('.human-score');
     const computerScoreDisplay = document.querySelector('.computer-score');
 
