@@ -41,7 +41,6 @@ function playGame(event) {
     } else {
         updateMessageDisplay(humanChoice, roundResult);
     }
-    updateScores();
 }
 
 function endTheGame() {
