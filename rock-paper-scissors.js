@@ -4,17 +4,14 @@ let gameRound = 1;
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
-    return getChoice(randomNumber);
-}
-
-function getChoice(choice) {
-    if (choice == 1) {
-        return 'rock';
-    } else if (choice == 2) {
-        return 'paper';
+    switch (randomNumber) {
+        case 1:
+            return 'rock';
+        case 2:
+            return 'paper';
+        case 3:
+            return 'scissors';
     }
-
-    return 'scissors';
 }
 
 function playRound(humanChoice, computerChoice) {
