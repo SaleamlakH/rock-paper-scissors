@@ -29,7 +29,7 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame(event) {
-    const humanChoice = event.target.parentElement.getAttribut('class');
+    const humanChoice = event.target.parentElement.getAttribute('class');
     const computerChoice = getComputerChoice();
     let roundResult = playRound(humanChoice, computerChoice);
 
@@ -121,7 +121,7 @@ function startGame() {
     const buttons = Array.from(humanPlayer.querySelectorAll('button'));
 
     buttons.forEach(button => {
-        button.addEventListener('click', playGame(e));
+        button.addEventListener('click', playGame);
     });
 }
 
