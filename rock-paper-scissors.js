@@ -1,6 +1,5 @@
 let humanScore = 0;
 let computerScore = 0;
-let gameRound = 1;
 
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -35,7 +34,6 @@ function playGame(humanChoice) {
 
     if (roundResult) {
         roundResult == 1 ? humanScore++ : computerScore++;
-        gameRound++;
     }
 
     if (humanScore >= 3 || computerScore >= 3) {
