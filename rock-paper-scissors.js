@@ -13,7 +13,7 @@ function getComputerChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
+function getRoundResult(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) return 0;
     
     if (humanChoice == 'rock') {
@@ -31,7 +31,7 @@ function playRound(humanChoice, computerChoice) {
 function playGame(event) {
     const humanChoice = event.target.parentElement.getAttribute('class');
     const computerChoice = getComputerChoice();
-    let roundResult = playRound(humanChoice, computerChoice);
+    let roundResult = getRoundResult(humanChoice, computerChoice);
 
     if (roundResult) {
         roundResult == 1 ? humanScore++ : computerScore++;
