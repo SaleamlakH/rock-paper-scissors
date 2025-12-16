@@ -43,10 +43,19 @@ function playGame(humanChoice) {
 
     if (humanScore >= 3 || computerScore >= 3) {
         displayEndMessage();
+        endTheGame();
     } else {
         updateMessageDisplay(humanChoice, roundResult);
     }
     updateScoreDisplay();
+}
+
+function endTheGame() {
+    const gameField = document.querySelector('.game-field');
+    const scores = document.querySelectorAll('.score-container');
+    
+    gameField.replaceChildren(...scores);
+    gameField.style.flexDirection = 'column';
 }
 
 function displayEndMessage() {
