@@ -4,7 +4,7 @@ let computerScore = 0;
 function playGame(event) {
     clearPreviousSelectedButtonStyle();
 
-    const humanSelectedButton = event.target.parentElement;
+    const humanSelectedButton = event.currentTarget;
     const humanChoice = humanSelectedButton.getAttribute('class');
     const computerChoice = getComputerChoice();
     let roundResult = getRoundResult(humanChoice, computerChoice);
