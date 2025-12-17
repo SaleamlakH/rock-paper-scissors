@@ -59,11 +59,9 @@ function updateScores(roundResult) {
 }
 
 function endTheGame() {
-    const gameField = document.querySelector('.game-field');
-    const scores = document.querySelectorAll('.score-container');
-    
-    gameField.replaceChildren(...scores);
-    gameField.style.flexDirection = 'column';
+    const buttons = document.querySelectorAll('.human-player button');
+
+    buttons.forEach(button => button.removeEventListener('click', playGame));
 }
 
 function displayEndMessage() {
