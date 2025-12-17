@@ -74,7 +74,7 @@ function displayEndMessage() {
         messageDisplay.style.borderColor = 'rgb(0, 255, 0);';
     } else {
         messageDisplay.textContent = 'You Lose!';
-        messageDisplay.style.borederColor = 'rgb(255, 0, 0);';
+        messageDisplay.style.borderColor = 'rgb(255, 0, 0);';
     }
 }
 
