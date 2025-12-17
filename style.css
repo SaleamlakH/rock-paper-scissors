@@ -37,7 +37,7 @@ h1 {
     margin: 0px;
     width: 350px;
     height: 70px;
-    border: 2px solid rgb(64, 231, 231);
+    border: 1px solid rgb(158, 161, 161);
     border-radius: 10px;
     text-align: center;
     white-space: pre-wrap;
@@ -99,7 +99,7 @@ h1 {
     padding: 0;
     width: 100px;
     height: 150px;
-    border: 1px solid rgb(141, 200, 200);
+    border: 1px solid rgb(158, 161, 161);
     border-radius: 0.5em;
 
     flex-shrink: 1;
