@@ -125,8 +125,7 @@ function getGameMessage(humanChoice, roundResult) {
 
 
 function startGame() {
-    const humanPlayer = document.querySelector('.human-player');
-    const buttons = Array.from(humanPlayer.querySelectorAll('button'));
+    const buttons = document.querySelectorAll('.human-player button');
 
     buttons.forEach(button => {
         button.addEventListener('click', playGame);
