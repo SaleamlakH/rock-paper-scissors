@@ -70,6 +70,7 @@ h1 {
 }
 
 .score-container span {
+    font-weight: bold;
     padding: 5px;
     width: 100px;
     border: 1.5px solid rgb(158, 161, 161);
@@ -81,6 +82,20 @@ h1 {
     height: 30px;
     width: 30px;
     border-radius: 0.5em;
+}
+
+.message.win,
+.human-score.win,
+.computer-score.win {
+    border: none;
+    background-color: rgb(4, 120, 4);
+}
+
+.message.lose,
+.human-score.lose,
+.computer-score.lose {
+    border: none;
+    background-color: rgb(120, 4, 4);
 }
 
 .cards {
