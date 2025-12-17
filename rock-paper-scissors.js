@@ -1,7 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 const gameRules = {
-    rock: {beats: 'scissor', message: 'Rock breaks scissors'},
+    rock: {beats: 'scissors', message: 'Rock breaks scissors'},
     paper: {beats: 'rock', message: 'Paper wraps rock'},
     scissors: {beats: 'paper', message: 'Scissors cut paper'}
 };
