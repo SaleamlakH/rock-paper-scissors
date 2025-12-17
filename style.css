@@ -88,6 +88,8 @@ h1 {
     background-color: rgb(35, 35, 48);
     border: 1px solid rgb(158, 161, 161);
     border-radius: 0.5em;
+    width:  350px;
+    height: 200px;
 
     display: flex;
     justify-content: center;
@@ -105,8 +107,14 @@ h1 {
     flex-shrink: 1;
 }
 
+.cards .selectedButton,
 .human-player  button:hover {
     border: 2px solid rgb(255, 128, 0);
+}
+
+.cards .selectedButton {
+    height: 160px;
+    width: 110px;
 }
 
 button img {
