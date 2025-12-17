@@ -1,6 +1,21 @@
 let humanScore = 0;
 let computerScore = 0;
 
+function playGame(event) {
+    const humanChoice = event.target.parentElement.getAttribute('class');
+    const computerChoice = getComputerChoice();
+    let roundResult = getRoundResult(humanChoice, computerChoice);
+
+    [humanScore, computerScore] = updateScores(roundResult);
+
+    if (humanScore >= 3 || computerScore >= 3) {
+        displayEndMessage();
+        endTheGame();
+    } else {
+        updateMessageDisplay(humanChoice, roundResult);
+    }
+}
+
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     switch (randomNumber) {
@@ -28,19 +43,19 @@ function getRoundResult(humanChoice, computerChoice) {
     }
 }
 
-function playGame(event) {
-    const humanChoice = event.target.parentElement.getAttribute('class');
-    const computerChoice = getComputerChoice();
-    let roundResult = getRoundResult(humanChoice, computerChoice);
+function updateScores(roundResult) {
+    const humanScoreDisplay = document.querySelector('.human-score');
+    const computerScoreDisplay = document.querySelector('.computer-score');
 
-    [humanScore, computerScore] = updateScores(roundResult);
-
-    if (humanScore >= 3 || computerScore >= 3) {
-        displayEndMessage();
-        endTheGame();
-    } else {
-        updateMessageDisplay(humanChoice, roundResult);
+    if (roundResult === 1) {
+        humanScore++;
+        humanScoreDisplay.textContent = humanScore;
+    } else if (roundResult === -1) {
+        computerScore++;
+        computerScoreDisplay.textContent = computerScore;
     }
+
+    return [humanScore, computerScore];
 }
 
 function endTheGame() {
@@ -61,21 +76,6 @@ function displayEndMessage() {
         messageDisplay.textContent = 'You Lose!';
         messageDisplay.style.borederColor = 'rgb(255, 0, 0);';
     }
-}
-
-function updateScores(roundResult) {
-    const humanScoreDisplay = document.querySelector('.human-score');
-    const computerScoreDisplay = document.querySelector('.computer-score');
-
-    if (roundResult === 1) {
-        humanScore++;
-        humanScoreDisplay.textContent = humanScore;
-    } else if (roundResult === -1) {
-        computerScore++;
-        computerScoreDisplay.textContent = computerScore;
-    }
-
-    return [humanScore, computerScore];
 }
 
 //round message
