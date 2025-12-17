@@ -2,12 +2,13 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame(event) {
+    clearPreviousSelectedButtonStyle();
+    
     const humanSelectedButton = event.target.parentElement;
     const humanChoice = humanSelectedButton.getAttribute('class');
     const computerChoice = getComputerChoice();
     let roundResult = getRoundResult(humanChoice, computerChoice);
 
-    clearPreviousSelectedButtonStyle();
     // computer choice is a string, e.g 'rock', humanSelectedButton is a button node
     styleSelectedButton(humanSelectedButton, computerChoice);
 
