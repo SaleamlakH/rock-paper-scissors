@@ -2,9 +2,14 @@ let humanScore = 0;
 let computerScore = 0;
 
 function playGame(event) {
-    const humanChoice = event.target.parentElement.getAttribute('class');
+    const humanSelectedButton = event.target.parentElement;
+    const humanChoice = humanSelectedButton.getAttribute('class');
     const computerChoice = getComputerChoice();
     let roundResult = getRoundResult(humanChoice, computerChoice);
+
+    clearPreviousSelectedButtonStyle();
+    // computer choice is a string, e.g 'rock', humanSelectedButton is a button node
+    styleSelectedButton(humanSelectedButton, computerChoice);
 
     [humanScore, computerScore] = updateScores(roundResult);
 
@@ -14,6 +19,19 @@ function playGame(event) {
     } else {
         updateMessageDisplay(humanChoice, roundResult);
     }
+}
+
+function clearPreviousSelectedButtonStyle() {
+    const buttons = document.querySelectorAll('.selectedButton');
+
+    buttons.forEach(button => button.classList.remove('selectedButton'));
+}
+
+function styleSelectedButton(humanSelectedButton, computerChoice) {
+    const computerSelectedButton = document.querySelector(`.computer-player .${computerChoice}`);
+
+    humanSelectedButton.classList.toggle('selectedButton');
+    computerSelectedButton.classList.toggle('selectedButton');
 }
 
 function getComputerChoice() {
@@ -122,7 +140,6 @@ function getGameMessage(humanChoice, roundResult) {
     }
     return message;
 }
-
 
 function startGame() {
     const buttons = document.querySelectorAll('.human-player button');
