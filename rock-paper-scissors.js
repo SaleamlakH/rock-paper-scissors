@@ -66,13 +66,19 @@ function endTheGame() {
 
 function displayEndMessage() {
     const messageDisplay = document.querySelector('.message');
+    const humanScore = document.querySelector('.human-score');
+    const computerScore = document.querySelector('.computer-score');
 
     if (humanScore >= 3) {
         messageDisplay.textContent = 'You Win!';
-        messageDisplay.style.borderColor = 'rgb(0, 255, 0);';
+        humanScore.classList.add('win');
+        computerScore.classList.add('lose');
+        messageDisplay.classList.add('win');
     } else {
         messageDisplay.textContent = 'You Lose!';
-        messageDisplay.style.borderColor = 'rgb(255, 0, 0);';
+        humanScore.classList.add('lose');
+        computerScore.classList.add('win');
+        messageDisplay.classList.add('lose');
     }
 }
 
