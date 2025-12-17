@@ -1,5 +1,10 @@
 let humanScore = 0;
 let computerScore = 0;
+const gameRules = {
+    rock: {beats: 'scissor', message: 'Rock breaks scissors'},
+    paper: {beats: 'rock', message: 'Paper wraps rock'},
+    scissors: {beats: 'paper', message: 'Scissors cut paper'}
+};
 
 function playGame(event) {
     clearPreviousSelectedButtonStyle();
@@ -18,7 +23,7 @@ function playGame(event) {
         displayEndMessage();
         endTheGame();
     } else {
-        updateMessageDisplay(humanChoice, roundResult);
+        updateMessageDisplay(humanChoice, computerChoice, roundResult);
     }
 }
 
@@ -49,17 +54,7 @@ function getComputerChoice() {
 
 function getRoundResult(humanChoice, computerChoice) {
     if (humanChoice == computerChoice) return 0;
-    
-    if (humanChoice == 'rock') {
-        if (computerChoice == 'paper') return -1;
-        return 1;
-    } else if (humanChoice == 'paper') {
-        if (computerChoice == 'rock') return 1;
-        return -1;
-    } else {
-        if (computerChoice == 'rock') return -1;
-        return 1;
-    }
+    return gameRules[humanChoice].beats === computerChoice ? 1 : -1;
 }
 
 function updateScores(roundResult) {
@@ -102,9 +97,9 @@ function displayEndMessage() {
 }
 
 //round message
-function updateMessageDisplay (humanChoice, roundResult) {
+function updateMessageDisplay (humanChoice, computerChoice, roundResult) {
     const messageDisplay = document.querySelector('.message');
-    let message = getGameMessage(humanChoice, roundResult);
+    let message = getGameMessage(humanChoice, computerChoice, roundResult);
 
     messageDisplay.textContent = message;
     switch (roundResult) {
@@ -119,27 +114,12 @@ function updateMessageDisplay (humanChoice, roundResult) {
     }
 }
 
-function getGameMessage(humanChoice, roundResult) {
-    if (roundResult == 0) return 'Tie';
+function getGameMessage(humanChoice, computerChoice, roundResult) {
+    if (roundResult === 0) return 'TIE';
 
-    let message = '';
-    switch (humanChoice) {
-        case 'rock':
-            message = (roundResult == 1)
-            ? 'YOU WIN!\nRock breaks scissors.'
-            : 'YOU LOSE!\nPaper wraps Rocks.';
-            break;
-        case 'paper':
-            message = (roundResult == 1)
-            ? 'YOU WIN!\nPaper wraps rocks.'
-            : 'YOU LOSE!\nScissors cut paper.';
-            break;
-        case 'scissors':
-            message = (roundResult == 1)
-            ? 'YOU WIN!\nScissors cut paper.'
-            : 'YOU LOSE!\nRock breaks scissors.';
-    }
-    return message;
+    return roundResult === 1
+        ? `YOU WIN\n${gameRules[humanChoice].message}`
+        : `YOU LOSE\n${gameRules[computerChoice].message}`
 }
 
 function startGame() {
