@@ -33,10 +33,18 @@ h1 {
 
 .message {
     font-size: 18px;
-    padding: 10px;
+    padding: 10px 30px;
     margin: 0px;
+    width: 350px;
+    height: 70px;
     border: 2px solid rgb(64, 231, 231);
-    border-radius: 1.5em;
+    border-radius: 10px;
+    text-align: center;
+    white-space: pre-wrap;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .game-field {
