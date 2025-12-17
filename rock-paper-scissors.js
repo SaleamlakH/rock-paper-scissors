@@ -3,7 +3,7 @@ let computerScore = 0;
 
 function playGame(event) {
     clearPreviousSelectedButtonStyle();
-    
+
     const humanSelectedButton = event.target.parentElement;
     const humanChoice = humanSelectedButton.getAttribute('class');
     const computerChoice = getComputerChoice();
@@ -85,18 +85,18 @@ function endTheGame() {
 
 function displayEndMessage() {
     const messageDisplay = document.querySelector('.message');
-    const humanScore = document.querySelector('.human-score');
-    const computerScore = document.querySelector('.computer-score');
+    const humanScoreDisplay = document.querySelector('.human-score');
+    const computerScoreDisplay = document.querySelector('.computer-score');
 
     if (humanScore >= 3) {
         messageDisplay.textContent = 'You Win!';
-        humanScore.classList.add('win');
-        computerScore.classList.add('lose');
+        humanScoreDisplay.classList.add('win');
+        computerScoreDisplay.classList.add('lose');
         messageDisplay.classList.add('win');
     } else {
         messageDisplay.textContent = 'You Lose!';
-        humanScore.classList.add('lose');
-        computerScore.classList.add('win');
+        humanScoreDisplay.classList.add('lose');
+        computerScoreDisplay.classList.add('win');
         messageDisplay.classList.add('lose');
     }
 }
